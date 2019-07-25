@@ -1,6 +1,6 @@
 import React from "react"
 
-import ContentWithLogo from "../../layouts/ContentWithLogo"
+import ContentWithLogo from "../../components/layouts/ContentWithLogo"
 
 const MarkSeemannWorkshop = () => (
     <ContentWithLogo>

@@ -1,6 +1,6 @@
 import React from "react"
 
-import CompanyLogoHeader from "../../components/CompanyLogoHeader/CompanyLogoHeader"
+import CompanyLogoHeader from "../../CompanyLogoHeader"
 
 import "./styles.css"
 

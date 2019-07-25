@@ -1,6 +1,6 @@
 import React from "react"
 
-import Content from "../layouts/Content"
+import Content from "../components/layouts/Content"
 
 const EmailPolicy = () => (
     <Content>
