@@ -167,6 +167,7 @@ DefaultLayout.propTypes = {
     bodyClass: PropTypes.string,
     isHome: PropTypes.bool,
     data: PropTypes.shape({
+        file: PropTypes.any,
         allGhostSettings: PropTypes.object.isRequired,
     }).isRequired,
 }

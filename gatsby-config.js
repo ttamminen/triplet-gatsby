@@ -15,25 +15,31 @@ try {
         },
     }
 } finally {
-    const { apiUrl, contentApiKey } = process.env.NODE_ENV === `development` ? ghostConfig.development : ghostConfig.production
+    const { apiUrl, contentApiKey } =
+        process.env.NODE_ENV === `development`
+            ? ghostConfig.development
+            : ghostConfig.production
 
     if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
-        throw new Error(`GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`) // eslint-disable-line
+        throw new Error(
+            `GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`,
+        ) // eslint-disable-line
     }
 }
 
 /**
-* This is the place where you can tell Gatsby which plugins to use
-* and set them up the way you want.
-*
-* Further info 👉🏼 https://www.gatsbyjs.org/docs/gatsby-config/
-*
-*/
+ * This is the place where you can tell Gatsby which plugins to use
+ * and set them up the way you want.
+ *
+ * Further info 👉🏼 https://www.gatsbyjs.org/docs/gatsby-config/
+ *
+ */
 module.exports = {
     siteMetadata: {
         siteUrl: config.siteUrl,
     },
     plugins: [
+        `gatsby-plugin-sass`,
         /**
          *  Content Plugins
          */
@@ -61,6 +67,35 @@ module.exports = {
                 process.env.NODE_ENV === `development`
                     ? ghostConfig.development
                     : ghostConfig.production,
+        },
+        {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: config.siteTitle,
+                short_name: config.siteTitle,
+                description: config.siteDescription,
+                start_url: config.pathPrefix,
+                background_color: config.backgroundColor,
+                theme_color: config.themeColor,
+                display: `minimal-ui`,
+                icons: [
+                    {
+                        src: `/logos/logo-48x48.png`,
+                        sizes: `48x48`,
+                        type: `image/png`,
+                    },
+                    {
+                        src: `/logos/logo-192x192.png`,
+                        sizes: `192x192`,
+                        type: `image/png`,
+                    },
+                    {
+                        src: `/logos/logo-1000x1000.png`,
+                        sizes: `1000x1000`,
+                        type: `image/png`,
+                    },
+                ],
+            },
         },
         /**
          *  Utility Plugins
@@ -103,9 +138,7 @@ module.exports = {
                     }
                 }
               `,
-                feeds: [
-                    generateRSSFeed(config),
-                ],
+                feeds: [generateRSSFeed(config)],
             },
         },
         {
