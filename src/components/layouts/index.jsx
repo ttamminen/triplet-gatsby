@@ -10,9 +10,7 @@ export default class MainLayout extends React.Component {
         return (
             <div>
                 <Helmet>
-                    <title>{`${
-                        config.siteTitle
-                    } |  ${this.getLocalTitle()}`}</title>
+                    <title>{`${config.siteTitle}`}</title>
                     <meta name="description" content={config.siteDescription} />
                 </Helmet>
                 {children}
