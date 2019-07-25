@@ -1,0 +1,10 @@
+{
+  "development": {
+    "apiUrl": "https://triplet.ghost.io",
+    "contentApiKey": "d6afee45b46faa11f1e562bfaa"
+  },
+  "production": {
+    "apiUrl": "https://triplet.ghost.io",
+    "contentApiKey": "d6afee45b46faa11f1e562bfaa"
+  }
+}
